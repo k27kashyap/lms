@@ -15,8 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(
     cors({
-        origin: ["https://lms-frontend-sepia-gamma.vercel.app/"],
-        methods: ['PUT', 'POST', 'GET', 'DELETE'],
+        origin: ['http://localhost:5173'],
         credentials: true,
     })
 );
