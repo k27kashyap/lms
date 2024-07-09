@@ -20,6 +20,13 @@ app.use(
         credentials: true,
     })
 );
+app.use((req, res, next) => {
+    res.setHeader(
+        'Access-Control-Allow-Origin',
+        'https://lms-frontend-xi-six.vercel.app'
+    );
+    next();
+});
 app.use(cookieParser());
 dotenv.config();
 app.use('/auth', AdminRouter);
