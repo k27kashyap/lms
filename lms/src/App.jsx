@@ -6,21 +6,18 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import AddStudent from './components/AddStudent';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from './api/api'; // Import the configured Axios instance
 import Logout from './components/Logout';
 import AddBook from './components/AddBook';
 import EditBook from './components/EditBook';
 import DeleteBook from './components/DeleteBook';
 
-
-
 function App() {
     const [role, setRole] = useState('');
 
-    axios.defaults.withCredentials = true;
+    api.defaults.withCredentials = true;
     useEffect(() => {
-        axios
-            .get('https://deloy-mern-api.vercel.app/')
+        api.get('/')
             .then((res) => {
                 if (res.data.login) {
                     setRole(res.data.role);
@@ -30,6 +27,7 @@ function App() {
             })
             .catch((err) => console.log(err));
     }, []);
+
     return (
         <BrowserRouter>
             <Navbar role={role} />
@@ -47,7 +45,6 @@ function App() {
                     element={<Logout setRole={setRole} />}
                 ></Route>
                 <Route path="/addbook" element={<AddBook />}></Route>
-                <Route path="/book/:id" element={<EditBook />}></Route>
                 <Route path="/book/:id" element={<EditBook />}></Route>
                 <Route path="/delete/:id" element={<DeleteBook />}></Route>
             </Routes>
