@@ -20,7 +20,7 @@ function App() {
     axios.defaults.withCredentials = true;
     useEffect(() => {
         axios
-            .get('http://localhost:3001/auth/verify')
+            .get('https://deloy-mern-api.vercel.app/')
             .then((res) => {
                 if (res.data.login) {
                     setRole(res.data.role);
