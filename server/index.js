@@ -9,7 +9,6 @@ import { bookRouter } from './routes/book.js';
 import { Book } from './models/Book.js';
 import { Student } from './models/Student.js';
 import { Admin } from './models/Admin.js';
-const RegisterModel = require('./models/Register');
 
 const app = express();
 app.use(express.json());
