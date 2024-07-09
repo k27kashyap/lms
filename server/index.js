@@ -15,7 +15,7 @@ const app = express();
 app.use(express.json());
 app.use(
     cors({
-        origin: [""],
+        origin: ["https://lms-frontend-xi-six.vercel.app/"],
         methods: ['PUT', 'POST', 'GET', 'DELETE'],
         credentials: true,
     })
